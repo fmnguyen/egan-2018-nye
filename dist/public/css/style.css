@@ -1,0 +1,15 @@
+.help-text,
+.title {
+    text-align: center;
+    display: block;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+input {
+    display: block;
+}

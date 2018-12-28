@@ -1,0 +1,32 @@
+{
+  "name": "2018-nye-ben",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist/ && babel ./src --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "nodemon dist/app.js",
+    "prestart": "yarn run -s build",
+    "dev": "nodemon --watch src --exec babel-node src/app.js",
+    "serve": "node ./src/bundle.js run && parcel ./src/public/index.html"
+  },
+  "author": "Francis",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "http": "^0.0.0",
+    "morgan": "^1.9.1",
+    "parcel-bundler": "^1.11.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "rimraf": "^2.6.2"
+  }
+}
