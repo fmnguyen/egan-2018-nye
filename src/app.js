@@ -14,7 +14,9 @@ const io = socketIO.listen(app.server);
 
 const whitelist = [
     'http://128.0.0.8:1234',
-    'http://localhost:1234'
+    'http://localhost:1234',
+    'http://localhost',
+    'http://egan.house'
 ];
 const corsOptions = {
     origin: function (origin, callback) {
@@ -42,15 +44,16 @@ io.sockets.on('connection', (socket) => {
 
     // the first string is the protocol passed from the client socket
     socket.on('submitPacket', (formData) => {
+        console.log('nickname: ' + formData.nickname);
         console.log('message: ' + formData.message);
-        socket.broadcast.emit('someoneSubmittedSomething', formData.message);
-        socket.emit('someoneSubmittedSomething', formData.message);
+        socket.broadcast.emit('someoneSubmittedSomething', formData);
+        socket.emit('someoneSubmittedSomething', formData);
     });
 
     console.log('a user connected');
 });
 
 // Finally, listen to the process to start the server
-app.server.listen(process.env.PORT || 1234, () => {
+app.server.listen(process.env.PORT || 80, () => {
     console.log(`Started on port ${app.server.address().port}`);
 });

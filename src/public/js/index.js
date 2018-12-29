@@ -24,7 +24,7 @@ const formToJson = (formTag) => {
 };
 
 $(document).ready(() => {
-    const socket = io.connect('http://localhost:1234');
+    const socket = io.connect('http://localhost');
     //const socket = io.connect('http://173.250.200.18:843/'); //Make sure this is changed to host IP + :843
 
     $('.form').submit((e) => {
@@ -39,6 +39,7 @@ $(document).ready(() => {
         //     This protocol responds to a similar socket.on() event that the server is listening to
         // 2. Have a socket listening to an event (socket.on) that the server emits and do something in response
         socket.emit('submitPacket', {
+            nickname: data.nickname,
             message: data.submitText
         });
         //const res = postFormData(data);
@@ -48,6 +49,6 @@ $(document).ready(() => {
     // Do something in response to a server emitted event
     // In this case, we append a list object to the page, but this can get as complex as necessary
     socket.on('someoneSubmittedSomething', (msg) => {
-        $('.container--messages').append($('<li>').text(msg));
+        $('.container--messages').append($('<li>').text(msg.nickname + ': ' + msg.message));
     });
 });

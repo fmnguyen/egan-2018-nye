@@ -13,3 +13,7 @@
 input {
     display: block;
 }
+
+.form-submit--btn {
+    display: block;
+}
