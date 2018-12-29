@@ -10,11 +10,23 @@ const app = express();
 app.server = http.createServer(app);
 
 // Adding socket.io to the Experss server
-const io = socketIO(app.server);
+const io = socketIO.listen(app.server);
+
+const whitelist = [
+    'http://128.0.0.8:1234',
+    'http://localhost:1234'
+];
+const corsOptions = {
+    origin: function (origin, callback) {
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+app.use(cors(corsOptions));
 
 // Basic setup for the server
 app.use(morgan('dev'));
-app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
@@ -24,14 +36,15 @@ app.get('/', (req, res) => {
 });
 
 // We list the connected sockets, then list functions inside this fn to define protocols
-io.on('connection', (socket) => {
+io.sockets.on('connection', (socket) => {
 
     // Maybe should define some logic to ask a user to input their user name
 
     // the first string is the protocol passed from the client socket
     socket.on('submitPacket', (formData) => {
         console.log('message: ' + formData.message);
-        io.emit('someoneSubmittedSomething', formData.message);
+        socket.broadcast.emit('someoneSubmittedSomething', formData.message);
+        socket.emit('someoneSubmittedSomething', formData.message);
     });
 
     console.log('a user connected');

@@ -24,6 +24,7 @@ const formToJson = (formTag) => {
 };
 
 $(document).ready(() => {
+    const socket = io.connect('http://localhost:1234');
     //const socket = io.connect('http://173.250.200.18:843/'); //Make sure this is changed to host IP + :843
 
     $('.form').submit((e) => {
