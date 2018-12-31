@@ -25,8 +25,8 @@
     };
 
     $(document).ready(() => {
-        const socket = io.connect('http://localhost');
-        // const socket = io.connect('http://egan.house');
+        //const socket = io.connect('http://localhost');
+        const socket = io.connect('http://egan.house');
         //const socket = io.connect('http://173.250.200.18:843/'); //Make sure this is changed to host IP + :843
 
         SetGlobals();
@@ -43,13 +43,6 @@
         setTimeout(() => {
             DeactivateConfetti();
         }, 3000);
-
-        $('form--btn-bottom').addEventListener("touchstart", function () {
-            $(this).animate({
-                left: 'calc(50% + 20px)',
-                transform: 'translate(-50%, calc(0% + 20px))'
-            }, 100);
-        }, false);
 
         $('.form').submit((e) => {
             e.preventDefault();

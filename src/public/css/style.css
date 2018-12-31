@@ -487,7 +487,7 @@ html {
 }
 
 .form--text {
-    height: 350px !important;
+    height: 300px !important;
 }
 
 .form--textBox::placeholder {
@@ -502,10 +502,8 @@ textarea:focus {
 }
 
 .footer {
-    position: absolute;
-    bottom: 20%;
-    left: 50px;
-    width: calc(100% - 100px);
+    position: relative;
+    width: 100%;
 }
 
 .form--btn {
@@ -539,9 +537,9 @@ textarea:focus {
 }
 
 .form--btn-bottom {
-    position: absolute;
+    /* position: absolute;
     left: calc(50%);
-    transform: translate(-50%, calc(0%));
+    transform: translate(-50%, calc(0%)); */
     /* transition: transform 0.1s, left 0.1s; */
 }
 
