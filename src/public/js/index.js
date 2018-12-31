@@ -44,7 +44,12 @@
             DeactivateConfetti();
         }, 3000);
 
-
+        $('form--btn-bottom').addEventListener("touchstart", function () {
+            $(this).animate({
+                left: 'calc(50% + 20px)',
+                transform: 'translate(-50%, calc(0% + 20px))'
+            }, 100);
+        }, false);
 
         $('.form').submit((e) => {
             e.preventDefault();

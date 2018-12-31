@@ -542,15 +542,15 @@ textarea:focus {
     position: absolute;
     left: calc(50%);
     transform: translate(-50%, calc(0%));
-    transition: transform 0.1s, left 0.1s;
+    /* transition: transform 0.1s, left 0.1s; */
 }
 
-.form--btn-bottom:active {
+/* .form--btn-bottom:active {
     left: calc(50% + 20px);
     transform: translate(-50%, calc(0% + 20px));
     transition: transform 0.1s,
         left 0.1s;
-}
+} */
 
 canvas {
     display: block;
