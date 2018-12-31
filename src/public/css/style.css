@@ -524,7 +524,7 @@ textarea:focus {
     /* //padding: 23px; */
 }
 
-.form-submit--btn:hover {
+.form--btn:hover {
     cursor: pointer;
 }
 
@@ -536,4 +536,13 @@ textarea:focus {
     position: absolute;
     left: calc(50% + 20px);
     transform: translate(-50%, calc(0% + 20px));
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
 }
