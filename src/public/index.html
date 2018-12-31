@@ -12,15 +12,22 @@
 </head>
 
 <body>
-  <div class="container--main">
-    <h1 class="title">Submit Something Below</h1>
-    <span class="help-text">Some help filler something or other</span>
-    <form class="form">
-      <input class="form--textBox form--nickname" type="text" name="nickname" />
-      <input class="form--textBox form--text" type="text" name="submitText" />
-      <input class="form--btn btn form-submit--btn" type="submit" />
-    </form>
-    <div class="container--messages">
+  <div class="flex--container container--main-flex">
+    <div class="container--main">
+      <img class="header-image" src='./img/top-asset.png' alt='2018-header' />
+      <form class="form">
+        <textarea class="form--textBox form--nickname" type="text" name="nickname" placeholder="Name..." maxlength="17"
+          autocomplete="off"></textarea>
+        <textarea class="form--textBox form--text" type="text" name="submitText" placeholder="Message..." maxlength="130"
+          autocomplete="off"></textarea>
+        <div class='footer'>
+          <div class="form--btn form-submit--btn form--btn-top">Let's Party</div>
+          <input class="form--btn btn form-submit--btn" type="submit" value="Let's Party" />
+        </div>
+
+      </form>
+      <div class="container--messages">
+      </div>
     </div>
   </div>
   <script src="./js/index.js"></script>
